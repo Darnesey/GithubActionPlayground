@@ -1,0 +1,22 @@
+name: Docker Build Sandbox
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Docker Build
+        run: docker/setup-buildx-action@v2
+      - name: Build Docker Image
+        run: docker/build-push-action@v4
+        with:
+          push: false  # No need to publish anything for this sandbox
+          tags: darnesey/playground_test:latest
+          context: .
+          file: ${{context}}/Dockerfile
+      - name: Maybe Run Image
+        run: |
+          docker run darnesey/playground_test:latest
+      
+      
