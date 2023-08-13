@@ -20,10 +20,10 @@ jobs:
       - name: Lint with ruff
         run: |
           # Stops the build if there are syntax errors or undefined names
-          echo lint 1
           ruff --format=github --select=E9,F63,F7,F82 --target-version=py37 .
-          echo lint 2
+          echo lint 1 succeeded
           ruff --format=github --target-version=py37 .
+          echo lint 2 succeeded
       - name: Sample run
         run: |
           python main.py

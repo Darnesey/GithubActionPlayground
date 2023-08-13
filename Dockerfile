@@ -1,4 +1,4 @@
 FROM python:alpine3.18
-COPY . /home
+COPY main.py /home
 WORKDIR /home
 CMD [ "python", "./main.py" ]
