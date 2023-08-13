@@ -14,7 +14,7 @@ jobs:
           push: false  # No need to publish anything for this sandbox
           tags: darnesey/playground_test:latest
           context: .
-          file: ${{context}}/Dockerfile
+          file: ./Dockerfile
       - name: Maybe Run Image
         run: |
           docker run darnesey/playground_test:latest
